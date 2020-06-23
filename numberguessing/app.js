@@ -15,3 +15,26 @@ const message = document.querySelector(".message");
 minNum.textContent = min;
 maxNum.textContent = max;
 
+// Listen for guess
+guessBtn.addEventListener('click', function(){
+    let guess = parseInt(guessInput.value);
+
+    // Validate
+    if(isNaN(guess) || guess < min || guess > max){
+        setMessage(`Please enter a number between ${min} and ${max}`, 'red');
+    }
+
+    // Check if won
+    if(guess === winningNum){
+        guessInput.disabled = true;
+        guessInput.style.borderColor = 'green';
+        setMessage(`${winningNum} is correct, YOU WIN!!!`, 'green');
+    }
+});
+
+// Set Message
+function setMessage(msg, color){
+    message.style.color = color;
+    message.textContent = msg;
+}
+
