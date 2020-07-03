@@ -29,12 +29,18 @@
     
     // console.log('READYSTATE', xhr.readyState);
     // Outputs READYSTATE 1
+
+    // Optionnal - Loader and spinner
+    xhr.onprogress = function() {
+      console.log("READYSTATE", xhr.readyState);
+    }
     
     xhr.onload = function () {
       console.log("READYSTATE", xhr.readyState);
       // Outputs READYSTATE 4 (new method, should use, no need to check for ready state 4)
       if (this.status === 200) {
-        console.log(this.responseText);
+        // console.log(this.responseText);
+        document.getElementById("output").innerHTML = `<h1>${this.responseText}</h1>`;
       }
     };
     
