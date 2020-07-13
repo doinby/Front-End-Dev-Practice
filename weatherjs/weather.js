@@ -16,7 +16,7 @@ class Weather {
     return responseData;
   }
 
-  //change location
+  // Change location
   changeLocation(city, country) {
     this.city = city;
     this.country = country;
